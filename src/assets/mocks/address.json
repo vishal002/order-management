@@ -1,0 +1,24 @@
+{
+  "billing": {
+    "firstName": "vishal",
+    "lastName": "kumar",
+    "addressLine1": "this is street 1",
+    "addressLine2": "this is street2",
+    "city": "pune",
+    "state": "maharashtra",
+    "zipcode": "411914",
+    "country": "India",
+    "orderDate": "2020-08-20"
+  },
+  "shipping": {
+    "firstName": "sunny",
+    "lastName": "kumar",
+    "addressLine1": "neo tower amanora toen",
+    "addressLine2": "amanora road",
+    "city": "pune",
+    "state": "maharashtra",
+    "zipcode": "421212",
+    "country": "india",
+    "expectedDeliveryDate": "2020-08-29"
+  }
+}

@@ -1,0 +1,49 @@
+<div class="table-responsive">
+  <form [formGroup]="productFrom">
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Product Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">QTY</th>
+        <th scope="col">Unit Price</th>
+        <th scope="col">Total Price</th>
+        <th scope="col">Notes</th>
+        <th scope="col">-</th>
+      </tr>
+      </thead>
+      <tbody formArrayName="entries" *ngFor="let entry of productFrom.get('entries')['controls']; let i = index;">
+        <tr [formGroupName]="i">
+          <td scope="row">
+            <input type="text" class="form-control" placeholder="Product Id" formControlName="product_id">
+          </td>
+          <td scope="row">
+            <input type="text" class="form-control" placeholder="Product Name" formControlName="product_name">
+          </td>
+          <td scope="row">
+            <input type="text" class="form-control" placeholder="QTY" formControlName="qty">
+          </td>
+          <td scope="row">
+            <input type="text" class="form-control" placeholder="Unit Price" formControlName="unit_price">
+          </td>
+          <td scope="row">
+            <input type="text" class="form-control" placeholder="Total Price" formControlName="total_price">
+          </td>
+          <td scope="row">
+            <textarea rows="1" class="form-control" placeholder="Notes" formControlName="notes"></textarea>
+          </td>
+          <td scope="row">
+            <button class="btn btn-sm btn-danger" (click)="removeEntryBtnClick(i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="7">
+            <button class="btn btn-sm btn-primary" (click)="addEntryBtnClick()">Add Product</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </form>
+</div>

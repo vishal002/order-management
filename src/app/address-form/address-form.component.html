@@ -1,0 +1,36 @@
+<form [formGroup]="addressForm">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Address Line 1" formControlName="addressLine1">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Address Line 2" formControlName="addressLine2">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="City" formControlName="city">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="State" formControlName="state">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Zipcode" formControlName="zipcode">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Country" formControlName="country">
+  </div>
+
+  <div class="form-group" *ngIf="typeOfAddress === 'billing' ">
+    <label for="orderDate" class="font-weight-bold">Order Date</label>
+    <input type="date" class="form-control" id="orderDate" formControlName="orderDate">
+  </div>
+
+  <div class="form-group" *ngIf="typeOfAddress === 'shipping' ">
+    <label for="expectedDelivery" class="font-weight-bold">Expected Delivery</label>
+    <input type="date" class="form-control" id="expectedDelivery" formControlName="expectedDeliveryDate">
+  </div>
+</form>
