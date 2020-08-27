@@ -1,36 +1,46 @@
 <form [formGroup]="addressForm">
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+    <input type="text" class="form-control" placeholder="First Name"
+           formControlName="firstName" [ngClass]="{'is-invalid': addressForm.get('firstName').errors?.required}">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+    <input type="text" class="form-control" placeholder="Last Name"
+           formControlName="lastName" [ngClass]="{'is-invalid': addressForm.get('lastName').errors?.required}">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Address Line 1" formControlName="addressLine1">
+    <input type="text" class="form-control" placeholder="Address Line 1"
+           formControlName="addressLine1" [ngClass]="{'is-invalid': addressForm.get('addressLine1').errors?.required}">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Address Line 2" formControlName="addressLine2">
+    <input type="text" class="form-control" placeholder="Address Line 2"
+           formControlName="addressLine2" [ngClass]="{'is-invalid': addressForm.get('addressLine2').errors?.required}">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="City" formControlName="city">
+    <input type="text" class="form-control" placeholder="City"
+           formControlName="city" [ngClass]="{'is-invalid': addressForm.get('city').errors?.required}">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="State" formControlName="state">
+    <input type="text" class="form-control" placeholder="State"
+           formControlName="state" [ngClass]="{'is-invalid': addressForm.get('state').errors?.required}">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Zipcode" formControlName="zipcode">
+    <input type="text" class="form-control" placeholder="Zipcode"
+           formControlName="zipcode" [ngClass]="{'is-invalid': addressForm.get('zipcode').errors?.required}">
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="Country" formControlName="country">
+    <input type="text" class="form-control" placeholder="Country"
+           formControlName="country" [ngClass]="{'is-invalid': addressForm.get('country').errors?.required}">
   </div>
 
   <div class="form-group" *ngIf="typeOfAddress === 'billing' ">
     <label for="orderDate" class="font-weight-bold">Order Date</label>
-    <input type="date" class="form-control" id="orderDate" formControlName="orderDate">
+    <input type="date" class="form-control" id="orderDate"
+           formControlName="orderDate" [ngClass]="{'is-invalid': addressForm.get('orderDate').errors?.required}">
   </div>
 
   <div class="form-group" *ngIf="typeOfAddress === 'shipping' ">
     <label for="expectedDelivery" class="font-weight-bold">Expected Delivery</label>
-    <input type="date" class="form-control" id="expectedDelivery" formControlName="expectedDeliveryDate">
+    <input type="date" class="form-control" id="expectedDelivery"
+           formControlName="expectedDeliveryDate" [ngClass]="{'is-invalid': addressForm.get('expectedDeliveryDate').errors?.required}">
   </div>
 </form>

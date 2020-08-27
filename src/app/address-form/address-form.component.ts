@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DashboardService } from '../services/dashboard.service';
 
 @Component({
@@ -7,9 +7,10 @@ import { DashboardService } from '../services/dashboard.service';
   templateUrl: './address-form.component.html',
   styleUrls: ['./address-form.component.scss']
 })
-export class AddressFormComponent implements OnInit {
+export class AddressFormComponent implements OnInit, OnChanges {
   addressForm: FormGroup;
   @Input() typeOfAddress;
+  @Input() addressInfo;
   @Output() billingAddress = new EventEmitter();
   @Output() shippingAddress = new EventEmitter();
   constructor(private fb: FormBuilder,
@@ -17,19 +18,17 @@ export class AddressFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.addressForm = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      addressLine1: [''],
-      addressLine2: [''],
-      city: [''],
-      state: [''],
-      zipcode: [''],
-      country: [''],
-      orderDate: [''],
-      expectedDeliveryDate: ['']
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      addressLine1: ['', Validators.required],
+      addressLine2: ['', Validators.required],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      zipcode: ['', Validators.required],
+      country: ['', Validators.required],
+      orderDate: ['', Validators.required],
+      expectedDeliveryDate: ['', Validators.required]
     });
-
-    this.getAddress();
 
     this.addressForm.valueChanges.subscribe(changes => {
       if (this.typeOfAddress === 'billing' ) {
@@ -42,13 +41,9 @@ export class AddressFormComponent implements OnInit {
     });
   }
 
-  getAddress() {
-    this.dashboardService.getAddress()
-      .subscribe( (response: any) => {
-        debugger;
-      }, error => {
-        console.log('some error occured while fetching address: ', error);
-      });
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.addressInfo.currentValue) {
+      this.addressForm.patchValue(this.addressInfo);
+    }
   }
-
 }

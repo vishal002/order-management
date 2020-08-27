@@ -6,6 +6,7 @@
           <div class="card-body">
             <div class="font-weight-bold">Billing Address</div>
             <app-address-form [typeOfAddress]=" 'billing' "
+                              [addressInfo]="billingAddressInfo"
                               (billingAddress)="getBillingAddress($event)" ></app-address-form>
           </div>
         </div>
@@ -15,6 +16,7 @@
           <div class="card-body">
             <div class="font-weight-bold">Shipping Address</div>
             <app-address-form [typeOfAddress]=" 'shipping' "
+                              [addressInfo]="shippingAddressInfo"
                               (shippingAddress)="getShippingAddress($event)"></app-address-form>
           </div>
         </div>

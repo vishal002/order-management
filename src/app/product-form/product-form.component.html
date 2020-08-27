@@ -15,22 +15,29 @@
       <tbody formArrayName="entries" *ngFor="let entry of productFrom.get('entries')['controls']; let i = index;">
         <tr [formGroupName]="i">
           <td scope="row">
-            <input type="text" class="form-control" placeholder="Product Id" formControlName="product_id">
+            <input type="text" class="form-control" placeholder="Product Id"
+                   formControlName="product_id" [ngClass]="{'is-invalid': entry.get('product_id').errors?.required}">
           </td>
           <td scope="row">
-            <input type="text" class="form-control" placeholder="Product Name" formControlName="product_name">
+            <input type="text" class="form-control w-auto" placeholder="Product Name"
+                   formControlName="product_name" [ngClass]="{'is-invalid': entry.get('product_name').errors?.required}">
           </td>
           <td scope="row">
-            <input type="text" class="form-control" placeholder="QTY" formControlName="qty">
+            <input type="text" class="form-control w-75" placeholder="QTY"
+                   formControlName="qty" [ngClass]="{'is-invalid': entry.get('qty').errors?.required}">
           </td>
           <td scope="row">
-            <input type="text" class="form-control" placeholder="Unit Price" formControlName="unit_price">
+            <input type="text" class="form-control" placeholder="Unit Price"
+                   formControlName="unit_price" [ngClass]="{'is-invalid': entry.get('unit_price').errors?.required}">
           </td>
           <td scope="row">
-            <input type="text" class="form-control" placeholder="Total Price" formControlName="total_price">
+            <input type="text" class="form-control w-75"
+                   formControlName="total_price" [ngClass]="{'is-invalid': entry.get('unit_price').errors?.required}"
+                   value="{{ entry.get('qty').value * entry.get('unit_price').value }}" disabled>
           </td>
           <td scope="row">
-            <textarea rows="1" class="form-control" placeholder="Notes" formControlName="notes"></textarea>
+            <textarea rows="1" class="form-control" placeholder="Notes"
+                      formControlName="notes" [ngClass]="{'is-invalid': entry.get('notes').errors?.required}"></textarea>
           </td>
           <td scope="row">
             <button class="btn btn-sm btn-danger" (click)="removeEntryBtnClick(i)">Delete</button>
