@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
 
+## Installation & Execution Steps
+* git clone `git clone https://github.com/vishal002/order-management.git`
+* `npm install` (make sure you have node version 8+ globally installed)
+* `npm start`
+* check `http://localhost:4300`
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
